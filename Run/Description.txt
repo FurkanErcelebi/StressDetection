@@ -1,0 +1,37 @@
+
+Experiment environment setup in Google Colab system. You hate must run on colab and upload dataset in specific folder you want
+
+Some variable fecth from environment. There must be '.env' file in root folder of drive and folloeing environment varibles must assigned:
+
+MAIN_EXP_PATH -> direcory path where AKTIVES dataset located.
+EXPR_RESULT_PATH -> direcory path for saving trainng results and test datasets.
+UTIL_SCRIPT_PATH -> direcory path where notebooks and other util scripts located.
+
+For preparing datasets in order of preprocess , augmentation and feature extraction , execute notebooks for following order :
+
+- PreprocessPhysiologicalSignalsForST.ipynb
+- PreprocessPhysiologicalSignalsForEDA.ipynb
+- PreprocessPhysiologicalSignalsForBVP.ipynb
+- AugmentationOfPreprocessedPhysiologicalSignals.ipynb
+- ExtractFeaturesFromPhysiologicalSignalsForST.ipynb
+- ExtractFeaturesFromPhysiologicalSignalsForEDA.ipynb
+- ExtractFeaturesFromPhysiologicalSignalsForBVP.ipynb
+- AnalyzeFeaturesOfPhysiologicalSignals.ipynb
+
+'AlexNet Stress Detection {Augmentation_Status} And {Dataset_Status} Datasets For {Procedure_Codes}.ipynb' and 
+'LSTM Stress Detection {Augmentation_Status} And {Dataset_Status} Datasets For {Procedure_Codes}.ipynb' notebooks are for model training.
+Paranthesis enclosed tags are for specified what trainig and dataset fromats will be used. These meanings described below:
+
+Augmentation_Status -> Decide whether augmentation samples willbe used in training . İf used , fill as '__Seperated_Augmentation'. Otherwise remain in empty
+
+Dataset_Status -> Decide whether class category distribution No Stress / Stress rates as balanced 
+					If balaced , write 'Balanced'. Otherwise 'Non Balanced'
+
+Procedure_Codes -> Dataset procedure code combination found in location which assigned in MAIN_EXP_PATH variable. All dataset starts with 'all_feature_metrics_dataset-non_balanced-'
+					and procedure codes . Must writed in notebook name for using specific dataset. for example 'all_feature_metrics_dataset-non_balanced-DP_2--AP_9--FP_2'
+
+Also ,to  train different version of LSTM , LSTM_VERSION_NO variable in 'LSTM Stress Detection {Augmentation_Status} And {Dataset_Status} Datasets For {Procedure_Codes}.ipynb' 
+notebook must be changed.
+
+After one of running all cells of one of notebooks , you can analyze training process logs and test results in 'AnalyzeExperimentResults.ipynb'
+notebook.

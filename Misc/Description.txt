@@ -1,0 +1,7 @@
+
+
+Google Drive: Google personilized storage service. All datasset and train results are saved in that service.
+
+
+Colab: Goolge provied jupyter notebook service. Inorder to analyze dataset and train results from drive , you must used this environment.
+
